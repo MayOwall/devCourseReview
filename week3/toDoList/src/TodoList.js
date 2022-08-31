@@ -1,18 +1,17 @@
-function TodoList(params) {
-  const todoListElement = document.createElement("div");
-  const targetElement = params.taget;
+export default function TodoList({ target, initialState }) {
+    const Container = document.createElement("div");
 
-  targetElement.appendChild(todoListElement);
+    target.appendChild(Container);
 
-  this.state = params.intialState;
+    this.state = initialState;
 
-  this.render = () => {
-    todoListElement.innerHTML = `
+    this.render = () => {
+        Container.innerHTML = `
         <ul>
-            ${this.state.map((todo) => `<li>${todo.text}</li>`).join("")}
+            ${this.state.map(({ text }) => `<li>${text}</li>`).join("")}
         </ul>
       `;
-  };
+    };
 
-  this.render();
+    this.render();
 }
